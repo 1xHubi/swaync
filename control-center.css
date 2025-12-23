@@ -19,11 +19,6 @@
     margin: 0;
     padding:0;
 }
-
-/* Avoid 'annoying' backgroud */
-.blank-window {  
-  background: transparent;  
-}
   
 /* CONTROL CENTER ------------------------------------------------------------------------ */
 
@@ -74,7 +69,6 @@
 }
 
 /* Buttons */
-
 .control-center .notification-row .notification-background .close-button {
   background: transparent;
   border-radius: 6px;
@@ -105,6 +99,7 @@ progressbar {
 
 .notification-group {
   margin: 2px 8px 2px 8px;
+  border-radius: 12px;
 
 }
 .notification-group-headers {
@@ -156,7 +151,8 @@ progressbar {
 
   /* Do not disturb */
 .widget-dnd {
-  margin: 6px;
+  padding: 6px 4px;
+  margin: 8px;
   font-size: 1.2rem;
 }
 
@@ -189,7 +185,7 @@ progressbar {
 .widget-buttons-grid {
   font-size: x-large;
   padding: 6px 45px;
-  margin: 6px;
+  margin: 8px;
   border-radius: 12px;
 }
 
@@ -207,31 +203,43 @@ progressbar {
 
   /* Music player */
 .widget-mpris {
-    background: @background-alt;
+  background-color: transparent;
     border-radius: 16px;
     color: @text;
-    margin:  20px 6px;
+    margin: 15px 8px 8px 8px;
+}
+.mpris-overlay{
+  border-radius: 16px;
+  background-color: transparent; 
 }
 
   /* NOTE: Background need *opacity 1* otherwise will turn into the album art blurred  */
 .widget-mpris-player {
     background-color: @background-sec;
-    border-radius: 22px;
+    border-radius: 16px;
     padding: 6px 14px;
     margin: 6px;
 }
-
+.widget-mpris .widget-mpris-player {
+  border-radius: var(--border-radius);
+  box-shadow: var(--mpris-album-art-shadow);
+}
 .widget-mpris > box > button {
   color: @text;
-  border-radius: 20px;
+  border-radius: 6px;
 }
  
 .widget-mpris button {
-  color: alpha(@text, .6);
+  transform: scale(1.20);
+  color: alpha(@text, 1);
+  border-radius: 16px;
+  padding: 3px 7px;
+  margin: 3px;
 }
 
 .widget-mpris button:hover {
   color: @text;
+  border-radius: 6px;
 }
 
 .widget-mpris-album-art {
@@ -251,7 +259,7 @@ progressbar {
 
 
 .control-center trough {
-  border-radius: 20px;
+  border-radius: 16px;
   background: linear-gradient(
     0deg,
     @primary_container 0%,
@@ -263,7 +271,7 @@ progressbar {
 .control-center trough highlight {
   padding: 5px;
   background: linear-gradient(0deg, @primary 0%, @tertiary 100%);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: 0px 0px 3px alpha(@on_surface, 1);
   transition: all 0.4s ease;
 }
@@ -277,7 +285,7 @@ progressbar {
     @primary_container 0%,
     @tertiary_container 100%
   );
-  padding: 2px 4px;
-  margin: 3px 8px;
+  padding: 2px;
+  margin: 8px;
   border-radius: 10px;
 }
